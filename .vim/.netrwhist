@@ -1,0 +1,6 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =4
+let g:netrw_dirhist_1='/usr/share/vim/vimfiles'
+let g:netrw_dirhist_2='/home/marc/workspace/KinectDisparity'
+let g:netrw_dirhist_3='/home/marc/Studium/Semester 4/CG2/cg2/.git'
+let g:netrw_dirhist_4='/home/marc/Downloads/ex07/src'
