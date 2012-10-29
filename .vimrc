@@ -8,6 +8,10 @@ set number
 set mouse=a
 set smartindent
 
+set completeopt=menu,menuone,longest
+" Limit popup menu height
+set pumheight=15
+
 " clang stuff
 " SuperTab option for context aware completion
 let g:SuperTabDefaultCompletionType = "context"
