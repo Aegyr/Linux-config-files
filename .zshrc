@@ -20,7 +20,8 @@ export GIT_COMMITTER_NAME="$GIT_AUTHOR_NAME"
 export GIT_COMMITTER_EMAIL="$GIT_AUTHOR_EMAIL"
 export PYTHONSTARTUP="/home/marc/.pyrc"
 
-#hopefully this will fix the pos1, ende problems
+
+#hopefully this will fix zshell pos1, ende problem
 bindkey "^[[2~" yank                    # Insert
 bindkey "^[[3~" delete-char             # Del
 bindkey "^[[5~" up-line-or-history      # PageUp
