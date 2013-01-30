@@ -1,4 +1,5 @@
 ! General
+ *utf8:1
  !urxvt*termName:  rxvt-256color
  urxvt*loginShell:         true
  urxvt*scrollBar:         false
@@ -21,10 +22,10 @@
  
  ! Appearance
  !  - use a bitmap font
- urxvt*font:        -windows-proggyclean-medium-*-*-*-13-*-*-*-*-*-*-*
- urxvt*boldFont:    -windows-proggycleanszbp-medium-*-*-*-13-*-*-*-*-*-*-*
+ !urxvt*font:        -windows-proggyclean-medium-*-*-*-13-*-*-*-*-*-*-*
+ !urxvt*boldFont:    -windows-proggycleanszbp-medium-*-*-*-13-*-*-*-*-*-*-*
  !  - use xft for drawing fonts
- !urxvt*font:       xft:Terminus:8
+ urxvt*font:       xft:Terminus:12
  !  - cursor
  urxvt*cursorColor: #DCDCCC
  !  - pseudo transparency

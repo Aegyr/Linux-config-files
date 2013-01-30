@@ -2,11 +2,16 @@
 :autocmd BufRead,BufNewFile *.cmake,CMakeLists.txt,*.cmake.in setf cmake
 :autocmd BufRead,BufNewFile *.ctest,*.ctest.in setf cmake
 au BufNewFile,BufRead *.frag,*.vert,*.fp,*.vp,*.glsl setf glsl
+au BufNewFile,BufRead *.cl set filetype=opencl
 call pathogen#infect()
 syntax on
 set number
 set mouse=a
 set smartindent
+
+set completeopt=menu,menuone,longest
+" Limit popup menu height
+set pumheight=15
 
 " clang stuff
 " SuperTab option for context aware completion
