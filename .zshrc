@@ -11,8 +11,8 @@ export EDITOR="vim"
 alias y="yaourt --noconfirm"
 
 alias x="startx"
-alias die="sudo shutdown -h now"
-alias reboot="sudo reboot"
+alias die="systemctl poweroff"
+alias reboot="systemctl reboot"
 
 export GIT_AUTHOR_NAME="Marc Kassubeck"
 export GIT_AUTHOR_EMAIL="marc.kassubeck@goolemail.com"

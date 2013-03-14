@@ -12,7 +12,8 @@ local naughty = require("naughty")
 local menubar = require("menubar")
 
 -- Widget library 
-require("wicked")
+--require("wicked")
+vicious = require("vicious")
 
 -- {{{ Error handling
 -- Check if awesome encountered an error during startup and fell back to
@@ -163,6 +164,39 @@ mytasklist.buttons = awful.util.table.join(
                                               if client.focus then client.focus:raise() end
                                           end))
 
+separator = wibox.widget.textbox()
+separator:set_text(" | ")
+
+cpuwidget = awful.widget.graph()
+cpuwidget:set_width(100)
+cpuwidget:set_height(25)
+cpuwidget:set_background_color("#000000")
+cpuwidget:set_color("#FFFFFF")
+vicious.register(cpuwidget, vicious.widgets.cpu, "$1", 0.5)
+
+function battery_line()
+	-- Reads in STDOUT from acpi piped through cut to get <Status>, <percent>%
+	local pipe = assert(io.popen("acpi | cut -d' ' -f 3,4,5"), "acpi read failed.")
+	local line = pipe:read("*line")
+			 
+	-- Quick and dirty subsitution for sleek feel
+	line = string.gsub(line, "Charging,", "C ")
+	line = string.gsub(line, "Discharging,", "D ")
+	line = string.gsub(line, "Unknown,", "U ")
+						  
+	-- Be good programmers and close our pipes.
+	pipe:close()
+									   
+	-- Return things
+	return line
+end
+
+battery = wibox.widget.textbox()
+vicious.register(battery, battery_line, "$1", 60)
+
+volume = wibox.widget.textbox()
+vicious.register(volume, vicious.widgets.volume, "$1$2", 60, "Master")
+
 for s = 1, screen.count() do
     -- Create a promptbox for each screen
     mypromptbox[s] = awful.widget.prompt()
@@ -192,6 +226,13 @@ for s = 1, screen.count() do
     -- Widgets that are aligned to the right
     local right_layout = wibox.layout.fixed.horizontal()
     if s == 1 then right_layout:add(wibox.widget.systray()) end
+    right_layout:add(separator)
+    right_layout:add(volume)
+    right_layout:add(separator)
+    right_layout:add(cpuwidget)
+    right_layout:add(separator)
+    right_layout:add(battery)
+    right_layout:add(separator)
     right_layout:add(mytextclock)
     right_layout:add(mylayoutbox[s])
 

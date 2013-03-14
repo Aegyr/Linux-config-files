@@ -3,6 +3,7 @@
 :autocmd BufRead,BufNewFile *.ctest,*.ctest.in setf cmake
 au BufNewFile,BufRead *.frag,*.vert,*.fp,*.vp,*.glsl setf glsl
 au BufNewFile,BufRead *.cl set filetype=opencl
+autocmd BufRead,BufNew,BufNewFile,BufCreate *.osl set filetype=osl 
 call pathogen#infect()
 syntax on
 set number
